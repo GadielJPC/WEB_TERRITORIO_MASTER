@@ -1,0 +1,103 @@
+/* QUIENES-SOMOS.CSS - Estilos hiper-profesionales para la página "Sobre Nosotros" */
+
+:root {
+    --med-teal: #00a9b5;           /* Color principal de la marca */
+    --med-teal-dark: #008f9a;      /* Color oscuro para hover */
+    --med-slate: #2c3e50;          /* Azul oscuro profesional (Header/Footer) */
+    --med-bg-light: #f8fafc;       /* Fondo gris súper suave */
+}
+
+/* --- Hero Section (Banner principal con efecto Parallax) --- */
+.qs-hero {
+    /* Gradiente oscuro sobre la imagen para que el texto resalte perfectamente */
+    background: linear-gradient(rgba(44, 62, 80, 0.85), rgba(44, 62, 80, 0.85)),
+                url('../assets/images/estetica.png') center/cover no-repeat;
+    background-attachment: fixed; /* Efecto parallax premium al hacer scroll */
+    color: #ffffff;
+    padding: 160px 0;
+}
+
+.qs-hero h1 {
+    letter-spacing: -1px;
+}
+
+/* --- Tarjetas (Diferencial y Metodología) --- */
+.qs-card {
+    background: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    border-radius: 16px;
+    padding: 2.5rem 1.5rem;
+    height: 100%;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Animación elástica suave */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+}
+
+.qs-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 169, 181, 0.12); /* Sombra turquesa suave */
+    border-bottom: 4px solid var(--med-teal); /* Acento inferior al pasar el ratón */
+}
+
+/* --- Iconos dentro de las tarjetas --- */
+.qs-icon-wrapper {
+    width: 70px;
+    height: 70px;
+    background-color: rgba(0, 169, 181, 0.1);
+    color: var(--med-teal);
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+/* El icono se rellena de color al hacer hover en la tarjeta */
+.qs-card:hover .qs-icon-wrapper {
+    background-color: var(--med-teal);
+    color: #ffffff;
+    transform: scale(1.1) rotate(5deg);
+}
+
+/* --- Sección de Estadísticas (Números grandes) --- */
+.qs-stat-number {
+    font-size: 3.5rem;
+    font-weight: 900;
+    /* Gradiente moderno en el texto */
+    background: linear-gradient(135deg, var(--med-teal), #00d2ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 0.2rem;
+}
+
+.qs-stat-label {
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* --- Llamada a la acción (CTA inferior) --- */
+.qs-cta-section {
+    background: linear-gradient(135deg, var(--med-slate), #1a252f);
+    padding: 80px 0;
+    border-top: 5px solid var(--med-teal);
+}
+
+/* --- Botón primario ajustado a la marca --- */
+.btn-med-primary {
+    background-color: var(--med-teal);
+    color: #ffffff !important;
+    padding: 12px 30px;
+    border-radius: 8px;
+    font-weight: 700;
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.btn-med-primary:hover {
+    background-color: var(--med-teal-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 169, 181, 0.3);
+}
