@@ -1,0 +1,439 @@
+/* =====================
+    RESET Y BASE
+===================== */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Montserrat', sans-serif;
+    color: #000000;
+}
+
+/* =====================
+    CONTENEDOR GENERAL
+===================== */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* VARIABLES DE DISEÑO */
+:root {
+    --bg-dark: #1a252f;
+    --accent: #00adb5;
+    --text-silver: #e2e8f0;
+    --header-height: 85px;
+}
+
+html {
+    scrollbar-gutter: stable; /* Reserva el espacio del scroll para que nada se mueva */
+}
+
+.header {
+    background-color: var(--bg-dark);
+    height: var(--header-height);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.header-container {
+    max-width: 1300px;
+    margin: 0 auto;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+    box-sizing: border-box;
+}
+
+/* --- LOGO PRO --- */
+.logo-area {
+    position: relative;
+    flex: 0 0 250px; /* Bloquea el ancho: ni crece ni se encoge */
+    height: 100%;    /* Alinea con el header */
+    display: flex;
+    align-items: center;
+}
+
+.logo-img {
+ position: absolute;
+    top: -50px;  
+    left: 0;
+    height: 140px; 
+    width: auto;
+    z-index: 100; 
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.logo-img:hover {
+    transform: scale(1.08) rotate(-2deg);
+}
+
+/* --- NAVEGACIÓN --- */
+.main-nav {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.nav-link {
+    color: var(--text-silver);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    padding: 10px 0;
+    transition: 0.3s;
+}
+
+.nav-link:hover {
+    color: var(--accent);
+}
+
+/* Línea animada bajo los enlaces */
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--accent);
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* --- DROPDOWNS (CERO FALLOS) --- */
+.dropdown {
+    position: relative;
+    padding-bottom: 20px; 
+    margin-bottom: -20px;
+}
+
+.dropdown-box {
+    position: absolute;
+    top: calc(100% - 10px);
+    left: -20px;
+    background: #24313d; /*el header para dar contraste */
+    min-width: 240px;
+    padding: 15px 0;
+    list-style: none;
+    border-radius: 8px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+    border: 1px solid rgba(255,255,255,0.05);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(15px);
+    transition: all 0.3s ease;
+}
+
+.dropdown:hover .dropdown-box {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown-item {
+    color: white;
+    text-decoration: none;
+    padding: 12px 25px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    transition: 0.2s;
+}
+
+.dropdown-item:hover {
+    background: var(--accent);
+    color: white;
+    padding-left: 30px;
+}
+
+/* Submenú lateral (Medicina) */
+.has-submenu { position: relative; }
+
+.submenu-side {
+    position: absolute;
+    left: 100%;
+    top: 0;
+    background: #24313d;
+    min-width: 260px;
+    list-style: none;
+    padding: 10px 0;
+    border-radius: 8px;
+    box-shadow: 10px 10px 30px rgba(0,0,0,0.5);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(10px);
+    transition: 0.3s;
+}
+
+.has-submenu:hover .submenu-side {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+}
+
+/* --- BOTÓN CONTACTO --- */
+.btn-premium {
+    background: transparent;
+    color: var(--accent) !important;
+    border: 2px solid var(--accent);
+    padding: 10px 25px;
+    border-radius: 50px; /* Estilo píldora, muy moderno */
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 13px;
+    transition: 0.3s all;
+}
+
+.btn-premium:hover {
+    background: var(--accent);
+    color: white !important;
+    box-shadow: 0 0 20px rgba(0, 173, 181, 0.4);
+    transform: translateY(-2px);
+}
+
+/* --- RESET DE ENLACES PARA SUBMENÚS --- */
+.dropdown-box, .submenu-side {
+    list-style: none;
+    padding: 10px 0;
+    margin: 0;
+    background: #1e2a35; 
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+}
+
+/* Estilo para cada item/enlace del submenú */
+.dropdown-box li a, 
+.submenu-side li a {
+    text-decoration: none !important; 
+    color: #e2e8f0 !important; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 25px;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    white-space: nowrap; 
+}
+
+/* Efecto Hover: Cuando pasas el ratón */
+.dropdown-box li a:hover, 
+.submenu-side li a:hover {
+    background: rgba(0, 173, 181, 0.1); 
+    color: #00adb5 !important; 
+    padding-left: 32px; 
+}
+
+/* --- POSICIONAMIENTO DEL SUBMENÚ LATERAL --- */
+.has-submenu {
+    position: relative;
+}
+
+.submenu-side {
+    position: absolute;
+    left: 100%; 
+    top: -10px;
+    min-width: 260px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(10px);
+    transition: all 0.3s ease;
+}
+
+/* Mostrar submenú al hacer hover */
+.has-submenu:hover > .submenu-side {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+}
+
+/* Icono de la flechita */
+.bi-chevron-right {
+    font-size: 10px;
+    opacity: 0.5;
+}
+
+/* Ajuste para el link activo del submenú */
+.has-submenu:hover > a {
+    color: #00adb5 !important;
+}
+
+/* =====================
+    MAIN (Index y General)
+===================== */
+:root {
+    --primary: #00adb5;
+    --dark: #1f2d3d;
+    --text-gray: #4a5568;
+    --bg-light: #f8fbff;
+}
+
+#inicio {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Estilos de tarjetas básicas (para Index) */
+.intro-card,
+.info-card {
+    border-radius: 16px !important;
+    background: #ffffff;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.info-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(0, 173, 181, 0.15) !important;
+}
+
+/* Tipografía de secciones */
+main h1 {
+    color: var(--dark);
+    letter-spacing: -1px;
+}
+
+main h2 {
+    font-size: 22px;
+    color: var(--dark);
+    position: relative;
+    padding-bottom: 8px;
+}
+
+/* Línea decorativa bajo H2 (Muy importante para Index) */
+main h2::after {
+    content: "";
+    display: block;
+    width: 40px;
+    height: 3px;
+    background-color: var(--primary);
+    margin-top: 8px;
+    border-radius: 10px;
+}
+
+main p {
+    font-size: 17px;
+    line-height: 1.8;
+    color: var(--text-gray);
+    text-align: justify;
+}
+
+/* Caja de iconos básica */
+.icon-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 54px;
+    height: 54px;
+    transition: 0.3s;
+    background: #f1f5f9;
+    border-radius: 12px;
+}
+
+/* =====================
+    RESPONSIVE
+===================== */
+@media (max-width: 991px) {
+    .nav {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        background-color: #2c3e50;
+        padding: 20px;
+        gap: 15px;
+        border-bottom: 2px solid #00adb5;
+    }
+
+    .nav.active {
+        display: flex;
+    }
+
+    .dropdown-menu,
+    .submenu-content {
+        position: static !important;
+        width: 100% !important;
+        box-shadow: none !important;
+    }
+}
+
+/* =====================
+    FOOTER
+===================== */
+.footer {
+    background-color: #2c3e50;
+    color: #ffffff;
+    padding: 40px 0 20px;
+    margin-top: auto;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+}
+
+.footer-col h4 {
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+
+.footer-col ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-col ul li {
+    margin-bottom: 10px;
+    font-size: 13px;
+    opacity: 0.8;
+}
+
+.footer-col ul li a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    padding-top: 20px;
+    text-align: center;
+    font-size: 12px;
+    opacity: 0.7;
+}
+
+.footer-link {
+    transition: color 0.3s ease;
+}
+.footer-link:hover {
+    color: #00adb5 !important;
+}
+
+/* strong para MasterMedic*/
+p,
+.text-muted {
+    font-weight: 400;
+}
