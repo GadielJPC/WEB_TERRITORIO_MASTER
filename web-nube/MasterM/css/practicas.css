@@ -1,0 +1,110 @@
+:root {
+    --med-teal: #00a9b5;           /* Color médico principal */
+    --med-teal-dark: #008f9a;      /* Color al pasar el cursor */
+    --med-bg-gray: #f8fafc;        /* Fondo claro de secciones */
+    --med-text-dark: #2d3748;      /* Color de títulos */
+    --med-text-muted: #718096;     /* Texto secundario */
+    --med-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); /* Sombra suave */
+    --med-radius: 12px;            /* Radio de bordes */
+}
+
+/* --- Sección Principal --- */
+.med-section {
+    padding: 60px 0;
+    background-color: var(--med-bg-gray);
+}
+
+/* Línea de acento debajo del título */
+.med-line {
+    width: 45px;
+    height: 4px;
+    background-color: var(--med-teal);
+    border-radius: 2px;
+}
+
+/* --- Tarjetas (Estilo General) --- */
+.med-card {
+    background: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.03);
+    border-radius: var(--med-radius);
+    box-shadow: var(--med-shadow);
+    transition: all 0.3s ease;
+    height: 100%;
+}
+
+.med-card-hover:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+/* --- Sección de Beneficios (Tarjetas superiores con iconos) --- */
+.med-icon-box {
+    width: 65px;
+    height: 65px;
+    background-color: rgba(0, 169, 181, 0.08); /* Fondo turquesa claro para icono */
+    color: var(--med-teal);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    margin: 0 auto 20px;
+    font-size: 1.7rem;
+}
+
+/* --- Sección de Programas (Tarjetas de cursos) --- */
+.med-card h5 {
+    color: var(--med-text-dark);
+    font-weight: 700;
+}
+
+.med-text-muted {
+    color: var(--med-text-muted);
+    line-height: 1.6;
+}
+
+/* --- Botones --- */
+.med-btn {
+    background-color: var(--med-teal);
+    color: #ffffff !important;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-block;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.med-btn:hover {
+    background-color: var(--med-teal-dark);
+    transform: translateY(-2px);
+}
+
+.med-btn-outline {
+    background-color: transparent;
+    color: var(--med-teal) !important;
+    border: 2px solid var(--med-teal);
+}
+
+.med-btn-outline:hover {
+    background-color: var(--med-teal);
+    color: #ffffff !important;
+}
+
+/* --- Bloque CTA (Llamada a la acción inferior) --- */
+.med-cta-box {
+    border: none;
+    padding: 45px;
+    text-align: center;
+}
+
+/* --- Adaptabilidad (Responsive) --- */
+@media (max-width: 768px) {
+    .med-section {
+        padding: 40px 15px;
+    }
+    
+    .med-cta-box {
+        padding: 30px 20px;
+    }
+}
