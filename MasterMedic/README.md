@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="..WEB_TERRITORIO_MASTER-main/MasterMedic/assets/images/Logoemp.png" alt="MasterMedic Logo" width="90">
+  <img src="../MasterMedic/assets/images/Logoemp.png" alt="MasterMedic Logo" width="90">
 </p>
 
 > **Excelencia Médica Aplicada.** La plataforma definitiva para la gestión de formación sanitaria especializada.
